@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-cat *.broken | grep -o ':.*$' | sort -u | sed 's/://' >> allpasswords
+cat *.broken | grep -o ':.*$' | sort -u | sed 's/://' >> allpasswords.pot

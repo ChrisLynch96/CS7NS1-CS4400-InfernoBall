@@ -1,4 +1,4 @@
-#ignoring state files from my environment
+#ignoring state files from my environment (chris)
 .vscode
 
 # Byte-compiled / optimized / DLL files
