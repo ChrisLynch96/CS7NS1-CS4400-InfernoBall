@@ -21,7 +21,7 @@ with open('./InfernoBallLayer1.as5', 'r') as infernoBall:
 
 hashes = data["hashes"]
 shares = data["shares"]
-cipher = data["ciphertext"]#.encode("utf-8")
+cipher = str(data["ciphertext"])
 for i in range(len(hashes)):
     hashes[i] = str(hashes[i])
     shares[i] = str(shares[i])
@@ -58,7 +58,7 @@ secret = as5.pwds_shares_to_secret(justPass, hashIndices, shares)
 
 print secret
 
-nextLevel = bytes.decode(decrypt(cipher, secret))
+nextLevel = decrypt(cipher, secret)
 print nextLevel
 
 '''
