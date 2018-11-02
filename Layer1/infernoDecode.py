@@ -1,10 +1,8 @@
 import as5_makeinferno as as5
-import Crypto
 import json
 import secretsharing as sss
 from Crypto.Cipher import AES
 import base64
-import hashlib
 
 #decryption function for the cipher text so we can get the next level
 unpad = lambda s: s[:-ord(s[len(s) - 1:])]
@@ -26,11 +24,7 @@ for i in range(len(hashes)):
     hashes[i] = str(hashes[i])
     shares[i] = str(shares[i])
 
-'''
-for i in range(len(data["hashes"])):
-    hashes[i] = hashes[i].encode("utf-8")
-    shares[i] = shares[i].encode("utf-8")
-'''
+print cipher
 
 # getting recovered passwords
 passFile = open('./Broken_Hashes/allPasswords.pot', 'r')
@@ -59,7 +53,7 @@ secret = as5.pwds_shares_to_secret(justPass, hashIndices, shares)
 print secret
 
 nextLevel = decrypt(cipher, secret)
-print nextLevel
+print nextLevel[0]
 
 '''
 f = open('infernoBallLayer2.as5', 'w+')
