@@ -3,6 +3,8 @@ import json
 import secretsharing as sss
 from Crypto.Cipher import AES
 import base64
+import hashlib
+import jsonpickle
 
 #decryption function for the cipher text so we can get the next level
 unpad = lambda s: s[:-ord(s[len(s) - 1:])]
@@ -27,7 +29,7 @@ for i in range(len(hashes)):
 print cipher
 
 # getting recovered passwords
-passFile = open('./Broken_Hashes/allPasswords.pot', 'r')
+passFile = open('./Broken_Hashes/allpasswords.pot', 'r')
 passwords = passFile.read().splitlines()
 passFile.close()
 
@@ -50,10 +52,17 @@ for i in range(len(justHash)):
 #Time to get a secret and see if it works
 secret = as5.pwds_shares_to_secret(justPass, hashIndices, shares)
 
-print secret
+f = open('layer1.secrets','w+')
+f.write(secret)
+f.close()
+#print secret
+#jsonpickle.encode(cipher), secret.zfill(32).decode('hex')
+nextLevel = decrypt(jsonpickle.encode(cipher), secret.zfill(32).decode('hex'))
+#print cipher
+print nextLevel
 
-nextLevel = decrypt(cipher, secret)
-print nextLevel[0]
+f = open('infernoBallLayer2.json', 'w+')
+f.write(nextLevel)
 
 '''
 f = open('infernoBallLayer2.as5', 'w+')
