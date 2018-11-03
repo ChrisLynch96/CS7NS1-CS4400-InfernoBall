@@ -16,7 +16,7 @@ def decrypt(enc, secret):
     return unpad(cipher.decrypt(enc[16:]))
 
 #Reading in the cipher, hashes, and shares from the JSON file
-with open('./InfernoBallLayer1.as5', 'r') as infernoBall:
+with open('./InfernoBallLayer2.json', 'r') as infernoBall:
     data = json.load(infernoBall)
 
 hashes = data["hashes"]
@@ -52,25 +52,14 @@ for i in range(len(justHash)):
 #Time to get a secret and see if it works
 secret = as5.pwds_shares_to_secret(justPass, hashIndices, shares)
 
+#writing secret
 f = open('layer1.secrets','w+')
 f.write(secret)
 f.close()
-#print secret
-#jsonpickle.encode(cipher), secret.zfill(32).decode('hex')
+
+#Getting next level from shamir secret
 nextLevel = decrypt(jsonpickle.encode(cipher), secret.zfill(32).decode('hex'))
-#print cipher
 print nextLevel
 
-f = open('infernoBallLayer2.json', 'w+')
+f = open('infernoBallLayer3.json', 'w+')
 f.write(nextLevel)
-
-'''
-f = open('infernoBallLayer2.as5', 'w+')
-f.write(nextLevel)
-f.close
-'''
-#print nextLevel
-'''
-with open('InfernoBallLayer2.as5', 'w+') as outfile:
-    json.dump(nextLevel, outfile)
-'''
