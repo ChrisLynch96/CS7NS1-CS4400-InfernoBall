@@ -16,7 +16,7 @@ def decrypt(enc, secret):
     return unpad(cipher.decrypt(enc[16:]))
 
 #Reading in the cipher, hashes, and shares from the JSON file
-with open('./InfernoBallLayer2.json', 'r') as infernoBall:
+with open('./InfernoBallLayer3.json', 'r') as infernoBall:
     data = json.load(infernoBall)
 
 hashes = data["hashes"]
@@ -61,5 +61,5 @@ f.close()
 nextLevel = decrypt(jsonpickle.encode(cipher), secret.zfill(32).decode('hex'))
 print nextLevel
 
-f = open('infernoBallLayer3.json', 'w+')
+f = open('infernoBallLayer4.json', 'w+')
 f.write(nextLevel)
