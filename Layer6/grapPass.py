@@ -1,6 +1,6 @@
 import json
 
-with open('InfernoBallLayer5.json', 'r') as infernoBall:
+with open('InfernoBallLayer6.json', 'r') as infernoBall:
     data = json.load(infernoBall)
 
 hashes = data["hashes"]

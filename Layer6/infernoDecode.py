@@ -26,8 +26,6 @@ for i in range(len(hashes)):
     hashes[i] = str(hashes[i])
     shares[i] = str(shares[i])
 
-print cipher
-
 # getting recovered passwords
 passFile = open('./Broken_Hashes/allpasswords.pot', 'r')
 passwords = passFile.read().splitlines()
@@ -59,7 +57,6 @@ f.close()
 
 #Getting next level from shamir secret
 nextLevel = decrypt(jsonpickle.encode(cipher), secret.zfill(32).decode('hex'))
-print nextLevel
 
 f = open('infernoBallLayer7.json', 'w+')
 f.write(nextLevel)

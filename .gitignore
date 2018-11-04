@@ -1,5 +1,6 @@
 #ignoring state files from my environment (chris)
 .vscode
+rockyou.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
