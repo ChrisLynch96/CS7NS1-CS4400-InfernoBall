@@ -35,7 +35,7 @@ passFile.close()
 justHash = []
 justPass = []
 for i in range(len(passwords)):
-    (shash, spass) = passwords[i].split(":")
+    (shash, spass) = passwords[i].split(":",1)
     justHash.append(shash)
     justPass.append(spass)
 
