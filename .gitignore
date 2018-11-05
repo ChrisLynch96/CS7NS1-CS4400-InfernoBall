@@ -1,6 +1,8 @@
 #ignoring state files from my environment (chris)
 .vscode
 rockyou.txt
+wordlist*.txt
+crackstation*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
