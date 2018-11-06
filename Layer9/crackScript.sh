@@ -5,7 +5,7 @@ gunzip crackstation.txt.gz crackstation.txt
 
 LC_ALL=C egrep -a "^[[:alnum:]]{5,8}$" crackstation.txt > layer9.txt
 
-fspec=crackstation.txt
+fspec=layer9.txt
 num_files=4
 
 # Work out lines per file.
