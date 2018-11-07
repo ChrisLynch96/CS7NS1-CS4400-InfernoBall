@@ -1,6 +1,6 @@
 
 
-with open("crackstation-human-only.txt", "r+") as wordlist:
+with open("reducedCrackstation.txt", "r+") as wordlist:
     words = wordlist.read().splitlines()
 
 def chunkIt(seq, num):
