@@ -51,7 +51,7 @@ for i in range(len(justHash)):
 secret = as5.pwds_shares_to_secret(justPass, hashIndices, shares)
 
 #writing secret
-f = open('layer9.secrets','w+')
+f = open('layer10.secrets','w+')
 f.write(secret)
 f.close()
 
